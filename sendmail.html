@@ -1,0 +1,66 @@
+<?php
+if(!eregi(getenv("HTTP_HOST"),getenv("HTTP_REFERER")))
+{
+    echo "ERROR_REFERER\n";
+    echo "[".getenv("HTTP_HOST")."]";
+    echo "[".getenv("HTTP_REFERER")."]";
+    return;
+}
+
+$mail_from_name = trim($_POST['form_user_name']);
+$mail_from = trim($_POST['form_user_email']);
+$mail_to = "swsong@fastcat.co";
+//$mail_to = "contact@fastcat.co";
+$subject = trim($_POST['subject']);
+$contents = trim($_POST['contents']);
+
+$ret = sendmail($mail_from_name, $mail_from, $mail_to, $subject, $contents, "[FASTCAT문의폼] ");
+if($ret == 0){
+    echo "OK";
+    //잘 접수되었으며 답변을 기다려달라고 메일을 보낸다.
+    $ret2 = sendmail("FASTCAT", "no-reply@fastcat.co", $mail_from, "FASTCAT 문의요청이 접수되었습니다.", "요청하신 이메일 '".$subject."'의 문의요청이 접수되었습니다.<br>담당자가 연락을 드리겠습니다.<br>감사합니다.", "");
+    if($ret2 == 0) {
+        echo "\nOK2";
+    } else if($ret2 == 1) {
+        echo "\nFAIL2";
+    } else if($ret2 == 2) {
+        echo "\nFAILINFO2";
+    }
+}else if ($ret == 1){
+    echo "FAIL";
+    //실패했으며, contact@fastcat.co로 보내달라고 한다.
+}else if ($ret == 2){
+    echo "FAILINFO";
+}
+
+function sendmail($name, $from, $to, $subj, $cont, $pref) {
+    if($name && $from && $to && $subj && $cont){
+        $Headers = "";
+        $Headers .= "from: ".$name." <".$from."> \r\n";
+        $Headers .= "Content-Type: text/html; charset=UTF-8 \r\n";
+        $subj =  $pref.$subj;
+/*
+echo $to;
+echo "\n";
+echo $subj;
+echo "\n";
+echo $cont;
+echo "\n";
+echo $Headers;
+echo "\n";
+*/
+
+        $result = mail($to, $subj, $cont, $Headers);
+        if($result){
+            //OK
+            return 0;
+        }else  {
+            //FAIL
+            return 1;
+        }
+    } else {
+        //정보부족.
+        return 2;
+    }
+}
+?>
