@@ -59,4 +59,8 @@ footer a {
     color: #888;
     font-size: 15px;
     font-style: italic;
+    margin-left: 10px;
 }
+#news h4 {margin-bottom: 4px;}
+#news p {margin-left: 15px;}
+#news h4 i {color:#888;}
