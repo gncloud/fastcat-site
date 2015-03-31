@@ -1,2 +1,62 @@
 
 ul.list-inline li { vertical-align: top; }
+.no-padding-top { padding-top: 0px; }
+.color-white { color: #fff; }
+.color-6 {
+    background: #f5f5f5;
+    color: #707070;
+}
+.customer-logos {
+    padding: 0 0 10px 0;
+    text-align: center;
+}
+.customer-logos h5 {
+    letter-spacing: 2px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+.customer-div { padding: 10px 0 10px 30px; }
+
+footer h5 { text-transform: uppercase; }
+footer ul {
+    padding: 16px 0;
+}
+footer .col li {
+    font-size: 13px;
+    line-height: 18px;
+}
+footer li {
+    margin-bottom: 8px;
+    line-height: 18px;
+}
+
+footer a {
+    color: #59afe1;
+    text-decoration: none;
+}
+
+#featured-story {
+    width: 100%;
+    height: 100%!important;
+    max-width: 100%;
+    background: url(/img/danawa-back1.png) scroll no-repeat center;
+    background-size: 1280px 480px;
+    text-shadow: 0 1px 3px rgba(0,0,0,.57);
+    color: #fff;
+}
+#featured-story h3 {
+    color: #fff;
+    font-size: 25px;
+    line-height: 36px;
+    margin-top: 20px;
+    font-weight: bolder;
+}
+#featured-story .customer-more p a { font-size: 13px;}
+#featured-story .customer-more p a, #featured-story h5 { color :#fff; }
+#featured-story .content { margin: 30px 0px 30px 50px; }
+
+#news span.date {
+    color: #888;
+    font-size: 15px;
+    font-style: italic;
+}
