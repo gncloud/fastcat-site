@@ -61,3 +61,18 @@ footer a {
 #news h4 {margin-bottom: 4px;}
 #news p {margin-left: 15px;}
 #news h4 i {color:#888;}
+
+a.a-normal { color: inherit}
+
+#clients2 img {
+    width: 140px;
+/*display: inline;*/
+}
+
+.logo-set {text-align: center; padding-left: 0; padding-right: 0;}
+
+.logo-set table {
+    /*border: 2px solid #777;*/
+
+}
+.logo-set table td { padding: 0 25px; }
