@@ -316,11 +316,11 @@ include 'header.html';
     <div class="row inner-page contact">
         <div class="col-md-6">
             <h3>문의사항</h3>
-            <form id="contact-form">
-                <textarea rows="6" class="form-control" placeholder="내용"></textarea>
-                <input type="text" class="form-control" placeholder="your@e-mail.com">
-                <input type="text" class="form-control" placeholder="이름 직함">
-                <button class="btn btn-primary btn-centered">연락바랍니다</button>
+            <form id="contact-form" onSubmit="return false;">
+                <textarea name="contents" rows="6" class="form-control required" placeholder="내용"></textarea>
+                <input name="mail_from" type="text" class="form-control email required" placeholder="your@e-mail.com">
+                <input name="mail_from_name" type="text" class="form-control required" placeholder="이름 직함">
+                <input type="submit" class="btn btn-primary btn-centered" value="연락바랍니다" />
             </form>
         </div>
         <div class="col-md-6">
@@ -336,6 +336,43 @@ include 'header.html';
     </div>
 </div>
 
+<script>
+    $(document).ready(function() {
+
+        var errMessage = "에러로 인해 전송하지 못했습니다. contact@fastcat.co 로 문의바랍니다.";
+        var form = $("#contact-form");
+        form.validate();
+        form.on("submit", function(e){
+            e.preventDefault();
+            if(form.valid()) {
+                $.ajax({
+                    url: "/sendmail.html",
+                    method: "post",
+                    data: {
+                        "contents" : form.find("textarea[name=contents]").val(),
+                        "mail_from" : form.find("input[name=mail_from]").val(),
+                        "mail_from_name" : form.find("input[name=mail_from_name]").val()
+                    },
+                    success: function(data) {
+                        console.log("data : " , data);
+                        console.log(data.indexOf("FAIL"));
+                        if(data.indexOf("OK") != -1) {
+                            alert("감사합니다. 빠른시일내에 답변드리겠습니다.")
+                        } else {
+                            alert(errMessage);
+                        }
+                    },
+                    fail: function() {
+                        alert(errMessage);
+                    }
+                })
+            }
+
+        });
+
+
+    });
+</script>
 <!-- The footer, social media icons, and copyright -->
 <?
     include 'footer.html';
