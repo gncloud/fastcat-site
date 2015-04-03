@@ -12,7 +12,7 @@ $mail_from = trim($_POST['mail_from']);
 $mail_to = "swsong@fastcat.co";
 //$mail_to = "contact@fastcat.co";
 $subject = "[". $mail_from_name. "]님 으로부터 FASTCAT문의가 전달되었습니다.";
-$contents = trim($_POST['contents']);
+$contents = nl2br(trim($_POST['contents']));
 
 $ret = sendmail($mail_from_name, $mail_from, $mail_to, $subject, $contents, "");
 if($ret == 0){
