@@ -71,8 +71,5 @@ a.a-normal { color: inherit}
 
 .logo-set {text-align: center; padding-left: 0; padding-right: 0;}
 
-.logo-set table {
-    /*border: 2px solid #777;*/
-
-}
-.logo-set table td { padding: 0 25px; }
+.logo-set table { margin: 0px auto; }
+.logo-set table td { padding: 10px 25px; }
