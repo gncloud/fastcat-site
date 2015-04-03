@@ -66,10 +66,8 @@ a.a-normal { color: inherit}
 
 #clients2 img {
     width: 140px;
-/*display: inline;*/
 }
 
 .logo-set {text-align: center; padding-left: 0; padding-right: 0;}
-
 .logo-set table { margin: 0px auto; }
 .logo-set table td { padding: 10px 25px; }
