@@ -9,8 +9,8 @@ if(!eregi(getenv("HTTP_HOST"),getenv("HTTP_REFERER")))
 
 $mail_from_name = trim($_POST['mail_from_name']);
 $mail_from = trim($_POST['mail_from']);
-$mail_to = "swsong@fastcat.co";
-//$mail_to = "contact@fastcat.co";
+//$mail_to = "swsong@fastcat.co";
+$mail_to = "contact@fastcat.co";
 $subject = "[". $mail_from_name. "]님 으로부터 FASTCAT문의가 전달되었습니다.";
 $contents = nl2br(trim($_POST['contents']));
 
