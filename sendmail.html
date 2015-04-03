@@ -18,7 +18,7 @@ $ret = sendmail($mail_from_name, $mail_from, $mail_to, $subject, $contents, "");
 if($ret == 0){
     echo "OK";
     //잘 접수되었으며 답변을 기다려달라고 메일을 보낸다.
-    $ret2 = sendmail("FASTCAT", "no-reply@fastcat.co", $mail_from, "FASTCAT 문의요청이 접수되었습니다.", $mail_from_name."님이 요청하신 이메일 '".$subject."'의 문의요청이 접수되었습니다.<p>담당자가 연락을 드리겠습니다.<p>감사합니다.", "");
+    $ret2 = sendmail("FASTCAT", "no-reply@fastcat.co", $mail_from, "FASTCAT 문의요청이 접수되었습니다.", $mail_from_name."님이 요청하신 문의가 접수되었습니다.<p>담당자가 연락을 드리겠습니다.<p>감사합니다.", "");
     if($ret2 == 0) {
         echo "\nOK2";
     } else if($ret2 == 1) {
