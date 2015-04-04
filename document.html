@@ -7,7 +7,8 @@ include 'lib/Parsedown.php';
 <?
 //$doc = file_get_contents('https://raw.githubusercontent.com/fastcat-co/fastcatsearch/master/README.md');
 //https://raw.githubusercontent.com/docker/docker/master/README.md
-$doc = file_get_contents('https://raw.githubusercontent.com/docker/docker/master/README.md');
+$doc = file_get_contents('https://github.com/fastcat-co/fastcat-manuals/tree/master/fastcatsearch/main-manual');
+
 
 $Parsedown = new Parsedown();
 $parsed = $Parsedown->text($doc);
