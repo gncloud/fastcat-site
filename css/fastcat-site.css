@@ -76,9 +76,9 @@ a.a-normal { color: inherit}
 .logo-set table td { padding: 10px 25px; }
 
 .sub-content-headline {
-    font-size: 26px;
+    font-size: 22px;
     text-align: left;
-    margin-left: 40px;
+    padding-left: 40px;
 }
 
 .menu-affix.affix-bottom {
@@ -105,4 +105,11 @@ ul.features-detail {
     list-style-type: disc;
 }
 
-ul.side-menu {  line-height: 180%; }
+ul.side-menu {  line-height: 180%;  font-size: 16px;}
+ul.side-info {  line-height: 150%;  font-size: 16px; padding-left: 20px}
+ul.side-info li {color: #3083a7}
+.side-info-box { margin-top: 30px; background-color: #ecf9ff;}
+
+.color-3 .btn-light, .color-4 .btn-light {border: 1px solid #3a9ac4; color: #3a9ac4; }
+.side-info .info-header {font-weight: bold; line-height: 30px; }
+.breadcrumb {font-size: 15px;}
