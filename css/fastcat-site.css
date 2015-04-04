@@ -1,3 +1,6 @@
+.page {
+    padding-top: 30px;
+}
 
 ul.list-inline li { vertical-align: top; }
 .no-padding-top { padding-top: 0px; }
@@ -71,3 +74,35 @@ a.a-normal { color: inherit}
 .logo-set {text-align: center; padding-left: 0; padding-right: 0;}
 .logo-set table { margin: 0px auto; }
 .logo-set table td { padding: 10px 25px; }
+
+.sub-content-headline {
+    font-size: 26px;
+    text-align: left;
+    margin-left: 40px;
+}
+
+.menu-affix.affix-bottom {
+    position: absolute;  /* Start scrolling again. */
+    top: auto; /* Override the top position above. */
+}
+
+.simple-box {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 3px;
+    z-index:1000;
+}
+
+.affix-top {position: fixed;}
+
+.features li { width: 100%; }
+.features-detail li {
+    display: list-item;
+}
+ul.features-detail {
+    list-style-type: disc;
+}
+
+ul.side-menu {  line-height: 180%; }

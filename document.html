@@ -1,0 +1,54 @@
+<?
+$menu = "resources";
+include 'header.html';
+include 'lib/Parsedown.php';
+?>
+
+<?
+//$doc = file_get_contents('https://raw.githubusercontent.com/fastcat-co/fastcatsearch/master/README.md');
+//https://raw.githubusercontent.com/docker/docker/master/README.md
+$doc = file_get_contents('https://raw.githubusercontent.com/docker/docker/master/README.md');
+
+$Parsedown = new Parsedown();
+$parsed = $Parsedown->text($doc);
+?>
+<!-- About page -->
+<div id="documentation" class="page color-4">
+    <div class="row inner-page">
+
+        <div class="col-md-9">
+            <div class="breadcrumb"><a href="/resources.html"><i class="fa fa-home"></i> 문서홈</a> > 실시간 검색엔진 > 통합매뉴얼</div>
+            <article class="markdown-body">
+                <?=$parsed ?>
+            </article>
+        </div>
+
+        <div class="col-md-3 hidden-sm">
+            <div class="nav menu-affix" data-spy="affix" data-offset-top="0" data-offset-bottom="500" >
+
+
+                <h4 class="sub-content-headline">목차</h4>
+                <ul class="side-menu">
+                    <li><a href="#one">Security Disclosure</a></li>
+                    <li><a href="#two">Better than VMs</a></li>
+                    <li><a href="#three">Getting the development the development builds</a></li>
+                </ul>
+
+
+                <h4 class="sub-content-headline">다른문서들</h4>
+                <ul class="side-menu">
+                    <li><a href="#one">시작하기</a></li>
+                    <li><a href="#two">설치하기</a></li>
+                    <li><a href="#three">통합메뉴얼</a></li>
+                    <li><a href="#three">API</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- The footer, social media icons, and copyright -->
+<?
+    include 'footer.html';
+?>

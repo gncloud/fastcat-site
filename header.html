@@ -10,7 +10,7 @@
     <!-- Load The Story -->
     <link id="the-story-css-file" href="/css/the-story.min.css" rel="stylesheet" media="screen">
     <link id="fastcat-site-css-file" href="/css/fastcat-site.css" rel="stylesheet" media="screen">
-
+    <link id="markdown-css-file" href="/css/markdown.css" rel="stylesheet" media="screen">
     <!-- Favicon -->
     <link rel="shortcut icon" href="/img/favicon.ico">
 
@@ -38,16 +38,16 @@
         <div id="nav-collapse" class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="<?=($menu =='home' ? 'active' : '') ?>">
-                    <a title="Home page" class=" brand-1" href="<?=($menu == 'home' ? '#home' : '/index.html') ?>">홈</a>
+                    <a title="Home page" class=" brand-1" href="/index.html">홈</a>
                 </li>
                 <li class="<?=($menu =='products' ? 'active' : '') ?>">
-                    <a title="Products" class=" brand-3" href="<?=($menu == 'products' ? '/products.html#products' : '/products.html') ?>">제품</a>
+                    <a title="Products" class=" brand-3" href="/products.html">제품</a>
                 </li>
-                <li class="<?=($menu =='resource' ? 'active' : '') ?>">
-                    <a title="Resources" class=" brand-3" href="<?=($menu == 'resource' ? '#resource' : '/resource.html') ?>">문서</a>
+                <li class="<?=($menu =='resources' ? 'active' : '') ?>">
+                    <a title="Resources" class=" brand-4" href="/resources.html">문서</a>
                 </li>
                 <li class="<?=($menu =='about' ? 'active' : '') ?>">
-                    <a title="Who we are" class=" fadeto brand-1" href="<?=($menu == 'about' ? '#about' : '/about.html') ?>"> 회사</a>
+                    <a title="Who we are" class=" fadeto brand-1" href="/about.html"> 회사</a>
                 </li>
 
             </ul>
