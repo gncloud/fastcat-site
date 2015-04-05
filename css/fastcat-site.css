@@ -6,10 +6,11 @@
 
 ul.list-inline li { vertical-align: top; }
 .no-padding-top { padding-top: 0px; }
+/*.no-padding-top-bottom {padding-top: 0px; padding-bottom: 0px;}*/
 .color-white { color: #fff; }
 .color-6 {
     background: #f5f5f5;
-    color: #707070;
+    /*color: #707070;*/
 }
 .customer-logos {
     padding: 0 0 10px 0;
@@ -116,42 +117,10 @@ ul.side-info li {color: #3083a7}
 .side-info .info-header {font-weight: bold; line-height: 30px; }
 .breadcrumb {font-size: 15px;}
 
-.center-block {
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-}
-.hero {
+.product-feature ul {padding-left: 0;}
+.product-feature-icons img {float: left;  margin-right: 1.1em;}
+.product-feature-icons:after {content:""; display:block;clear:both;}
 
-/*background: url(http://lucidworks.com/wp-content/themes/lucidworks/library/img/backgrounds/texture-dots.png) center center*/
-/*background: linear-gradient(120deg, #ecf9ff,#ecf9ff, #ecf9ff, #fff);*/
-}
-.hero-text {
-    float: none;
-}
-/*.hero-background-mask {*/
-    /*background: radial-gradient(50% 145%, #d8efe2 46%, rgba(210, 237, 210, 0) 100%);*/
-    /*height: 21em;*/
-    /*width: 60em;*/
-    /*border-radius: 50%;*/
-    /*position: absolute;*/
-    /*top: -2em;*/
-    /*left: -7em;*/
-    /*z-index: 0;*/
-/*}*/
-.hero-text h2, .hero-text p, .hero-text .button-cta, .hero-text img {
-    z-index: 1;
-    position: relative;
-    color: #000;
-}
-/*.hero {*/
-
-    /*background: linear-gradient(120deg, #1a1e59,#3a9ac4, #4baad3, #ecf9ff);*/
-    /*background: linear-gradient(to right,  #4baad3, #ecf9ff);*/
-    /*background: url(https://cloud.google.com/images/products/cloudsql/cloudsql-header.jpg) scroll no-repeat center;*/
-    /*background-size: 100%;*/
-    /*text-shadow: 0 1px 3px rgba(0,0,0,.57);*/
-/*}*/
-
-.product-hero {padding-top: 40px;
-    }
+.markdown-body {margin-top: 20px; }
+.product-more {padding-top: 20px;}
+.product-more ul {text-align: center; }
