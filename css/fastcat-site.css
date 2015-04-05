@@ -124,3 +124,7 @@ ul.side-info li {color: #3083a7}
 .markdown-body {margin-top: 20px; }
 .product-more {padding-top: 20px;}
 .product-more ul {text-align: center; }
+
+.features h3 {
+    font-size: 29px;
+}
