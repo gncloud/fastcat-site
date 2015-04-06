@@ -138,6 +138,7 @@ ul.side-info li {color: #3083a7}
 .document-box {
     background-color: #fff;
     border: 1px solid #ddd;
+    border-radius: 3px;
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
     padding: 30px;
