@@ -1,94 +1,78 @@
 <?
 $menu = "resources";
 include 'header.html';
+include "doc_list.html";
 ?>
 
 <div id="products" class="page color-4 ">
-    <!--<div class="inner-page">-->
-    <!--<h2 class="page-headline">FASTCAT 문서</h2>-->
-    <!--</div>-->
     <div class="inner-page row">
 
-        <div class="col-md-9">
-            <div class="col-md-12">
+        <div class="col-md-12">
+            <div class="col-md-9">
                 <h3>시작하기</h3>
                 <p class="lead">바로 시작해보세요.</p>
-                <ul class="features-detail">
+                <ul class="document-list">
                     <li><a href="">실시간 검색엔진 시작하기</a></li>
                     <li><a href="">검색어 통계분석 시작하기</a></li>
                 </ul>
             </div>
-            <div class="col-md-6">
-                <h3>실시간 검색</h3>
-                <p>기업 내부데이터 및 웹상의 정형, 비정형의 데이터를 색인하여 실시간 검색이 가능. 웹관리도구 제공. 기업 내부데이터 및 웹상의 정형, 비정형의 데이터를 색인하여 실시간 검색이 가능. 웹관리도구 제공.</p>
-                <ul class="features-detail">
-                    <li>시작하기</li>
-                    <li>설치하기</li>
-                    <li><a href="document.html">통합메뉴얼</a></li>
-                    <li>API</li>
-                    <li>설치동영상</li>
-                </ul>
+            <div class="col-md-3">
+                <div class="simple-box side-info-box">
+                    <ul class="side-info">
+                        <li>
+                            <p><a href="/training.html" class="info-header"><i class="fa fa-book"></i> 교육정보</a><br>
+                                <a href="/training.html">제품교육정보를 확인합니다.</a></p>
+                        </li>
+                        <li>
+                            <p><a href="https://fastcat.zendesk.com/hc/ko/requests/new" class="info-header" target="_blank"><i class="fa fa-comment-o"></i> 기술지원요청</a><br>
+                                <a href="https://fastcat.zendesk.com/hc/ko/requests/new" target="_blank">기술지원을 요청합니다. 요청전 유지보수계약이 유효한지 확인해주세요.</a></p>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="col-md-6">
-                <h3>검색어통계분석</h3>
-                <p>기업 내부데이터 및 웹상의 정형, 비정형의 데이터를 색인하여 실시간 검색이 가능. 웹관리도구 제공. 기업 내부데이터 및 웹상의 정형, 비정형의 데이터를 색인하여 실시간 검색이 가능. 웹관리도구 제공.</p>
-                <ul class="features-detail">
-                    <li>시작하기</li>
-                    <li>튜토리얼</li>
-                    <li><a href="document.html">통합메뉴얼</a></li>
-                    <li>API</li>
-                    <li>설치동영상</li>
-                </ul>
-            </div>
-            <div class="col-md-6">
-                <h3>검색어통계분석</h3>
-                <p>기업 내부데이터 및 웹상의 정형, 비정형의 데이터를 색인하여 실시간 검색이 가능. 웹관리도구 제공. 기업 내부데이터 및 웹상의 정형, 비정형의 데이터를 색인하여 실시간 검색이 가능. 웹관리도구 제공.</p>
-                <ul class="features-detail">
-                    <li>시작하기</li>
-                    <li>튜토리얼</li>
-                    <li><a href="document.html">통합메뉴얼</a></li>
-                    <li>API</li>
-                    <li>설치동영상</li>
-                </ul>
-            </div>
-            <div class="col-md-6">
-                <h3>검색어통계분석</h3>
-                <p>기업 내부데이터 및 웹상의 정형, 비정형의 데이터를 색인하여 실시간 검색이 가능. 웹관리도구 제공. 기업 내부데이터 및 웹상의 정형, 비정형의 데이터를 색인하여 실시간 검색이 가능. 웹관리도구 제공.</p>
-                <ul class="features-detail">
-                    <li>시작하기</li>
-                    <li>튜토리얼</li>
-                    <li><a href="document.html">통합메뉴얼</a></li>
-                    <li>API</li>
-                    <li>설치동영상</li>
-                </ul>
-            </div>
-            <div class="col-md-6">
-                <h3>검색어통계분석</h3>
-                <p>기업 내부데이터 및 웹상의 정형, 비정형의 데이터를 색인하여 실시간 검색이 가능. 웹관리도구 제공. 기업 내부데이터 및 웹상의 정형, 비정형의 데이터를 색인하여 실시간 검색이 가능. 웹관리도구 제공.</p>
-                <ul class="features-detail">
-                    <li>시작하기</li>
-                    <li>튜토리얼</li>
-                    <li><a href="document.html">통합메뉴얼</a></li>
-                    <li>API</li>
-                    <li>설치동영상</li>
-                </ul>
-            </div>
+
+            <?
+            $row = 0;
+            foreach($cat_list as $cat_name => $cat_info) {
+
+                $cat_title = $cat_info[0];
+                $cat_desc = $cat_info[1];
+                if(count($doc_list[$cat_name]) > 0) {
+                $row++;
+                if($row % 2 == 0) {
+                ?>
+                    <div class="row">
+                <?
+                }
+                ?>
+                <div class="col-md-6 document-list-box">
+                    <h3><?= $cat_title ?></h3>
+                    <p><?= $cat_desc ?></p>
+                    <ul class="document-list">
+                        <?
+                        foreach($doc_list[$cat_name] as $doc_name => $doc_info) {
+                            $doc_title = $doc_info[0];
+                        ?>
+                            <li><a href="document.html?c=<?=$cat_name ?>&d=<?=$doc_name ?>"><?=$doc_title ?></a></li>
+                        <?
+                        }
+                        ?>
+                    </ul>
+                </div>
+                <?
+                if($row % 2 == 0) {
+                ?>
+                </div>
+                <?
+                }
+                ?>
+                <?
+                }
+            }
+            ?>
         </div>
 
-        <div class="col-md-3" style="padding: 0 20px">
-            <div class="simple-box side-info-box">
-                <ul class="side-info">
-                    <li>
-                        <p><a href="/training.html" class="info-header"><i class="fa fa-book"></i> 교육정보</a><br>
-                            <a href="/training.html">제품교육정보를 확인합니다.</a></p>
-                    </li>
-                    <li>
-                        <p><a href="https://fastcat.zendesk.com/hc/ko/requests/new" class="info-header" target="_blank"><i class="fa fa-comment-o"></i> 기술지원요청</a><br>
-                            <a href="https://fastcat.zendesk.com/hc/ko/requests/new" target="_blank">기술지원을 요청합니다. 요청전 유지보수계약이 유효한지 확인해주세요.</a></p>
-                    </li>
-                </ul>
-            </div>
-        </div>
+
     </div>
 
 

@@ -100,18 +100,24 @@ a.a-normal { color: inherit}
 
 .affix-top {position: fixed;}
 
-.features li { width: 100%; }
-.features-detail li {
+.document-list li {
     display: list-item;
+
 }
-ul.features-detail {
+ul.document-list {
     list-style-type: disc;
+    padding-left: 20px;
 }
+.document-list-box {
+    padding-right: 30px;
+}
+
+
 
 ul.side-menu {  line-height: 180%;  font-size: 16px;}
 ul.side-info {  line-height: 150%;  font-size: 16px; padding-left: 20px}
 ul.side-info li {color: #3083a7}
-.side-info-box { margin-top: 30px; background-color: #ecf9ff;}
+.side-info-box { margin-top: 10px; background-color: #ecf9ff;}
 
 .color-3 .btn-light, .color-4 .btn-light {border: 1px solid #3a9ac4; color: #3a9ac4; }
 .side-info .info-header {font-weight: bold; line-height: 30px; }
@@ -128,3 +134,13 @@ ul.side-info li {color: #3083a7}
 .features h3 {
     font-size: 29px;
 }
+
+.document-box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    padding: 30px;
+    word-wrap: break-word;
+}
+.document-side-box {padding: 10px 10px 20px 0px;}
