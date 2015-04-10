@@ -22,6 +22,7 @@ ul.list-inline li { vertical-align: top; }
     text-transform: uppercase;
 }
 .customer-div { padding: 10px 0 10px 30px; }
+.customer-div table td { padding: 10px;}
 
 footer h5 { text-transform: uppercase; }
 footer ul {
