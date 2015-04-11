@@ -1,4 +1,6 @@
 <?
+$menu = "admin";
+include 'header.html';
 include "doc_list.html";
 
 $result = -1;
@@ -9,23 +11,6 @@ if(isset($doc_cat) && isset($doc_name)) {
     $result = publish($doc_name, $doc_list[$doc_cat][$doc_name][1]);
 }
 ?>
-
-<html>
-<head>
-    <title>Fastcat Site Admin</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta name="description" content="Fastcat Site Admin">
-    <meta name="author" content="Fastcat">
-
-    <link rel="shortcut icon" href="/img/fastcat-favicon.ico">
-
-    <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-
-    <meta http-equiv=X-UA-Compatible content=IE=edge>
-</head>
-<body>
 
 <?
 if($result > 0) {
@@ -47,6 +32,8 @@ if($result > 0) {
 }
 ?>
 
+<div class="page color-4 ">
+    <div class="inner-page row">
 <div class="col-md-12">
     <h2><a href="/doc_admin.html">문서 리스트</a></h2>
 
@@ -94,11 +81,12 @@ if($result > 0) {
         ?>
     </table>
 </div>
+</div>
+</div>
+<!--<script src="/js/bootstrap.js"></script>-->
 
-<script src="/js/bootstrap.js"></script>
-
-</body>
-</html>
+<!--</body>-->
+<!--</html>-->
 
 
 <?
@@ -142,4 +130,9 @@ function startsWith($haystack, $needle) {
 // search backwards starting from haystack length characters from the end
 return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== FALSE;
 }
+?>
+
+
+<?
+    include 'footer.html';
 ?>
