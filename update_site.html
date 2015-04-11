@@ -3,9 +3,10 @@ echo '<pre>';
 $cmd ="cat /etc/passwd";
 $cmd = 'cd /home/ec2-user/fastcat-site; git pull';
 echo $cmd.PHP_EOL;
-$last_line = system($cmd, $retval);
+unset($output);
+exec($cmd, $output, $retval);
 echo PHP_EOL.'>> Return value: ' . $retval . PHP_EOL;
-echo PHP_EOL.'>> Last line: ' . $last_line . PHP_EOL;
+echo PHP_EOL.'>> Output: ' . $output . PHP_EOL;
 
 echo PHP_EOL . "---------";
 /*
