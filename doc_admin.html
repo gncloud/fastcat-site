@@ -12,11 +12,11 @@ if(isset($doc_cat) && isset($doc_name)) {
 
 <html>
 <head>
-    <title>fastcat document admin</title>
+    <title>Fastcat Site Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="description" content="Twitter bootstrap theme">
-    <meta name="author" content="fastcat">
+    <meta name="description" content="Fastcat Site Admin">
+    <meta name="author" content="Fastcat">
 
     <link rel="shortcut icon" href="/img/fastcat-favicon.ico">
 
@@ -78,7 +78,7 @@ if($result > 0) {
                     ?>
                     <td class="col-md-2"><?=$doc_title?></td>
                     <td><a href="/document.html?c=<?=$doc_cat?>&d=<?=$doc_name?>" target="_blank"><?=$doc_name?>.html</a></td>
-                    <td><?=$doc_url?></td>
+                    <td><a href="<?=$doc_url?>" target="_blank"><?=$doc_url?></a></td>
                     <td>
                         <form action="doc_admin.html" method="POST">
                             <input type="hidden" name="doc_cat" value="<?=$doc_cat?>"/>
