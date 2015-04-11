@@ -37,7 +37,7 @@ include "doc_list.html";
 
                 $cat_title = $cat_info[0];
                 $cat_desc = $cat_info[1];
-                if($doc_list[$cat_name] && count($doc_list[$cat_name]) > 0) {
+                if(array_key_exists($cat_name, $doc_list) && count($doc_list[$cat_name]) > 0) {
                 $row++;
                 if($row % 2 == 0) {
                 ?>
