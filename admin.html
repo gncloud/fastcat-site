@@ -1,0 +1,150 @@
+<?
+$menu = "admin";
+include 'header.html';
+include "doc_list.html";
+
+$result = -1;
+
+$doc_cat = trim($_POST['doc_cat']);
+$doc_name = trim($_POST['doc_name']);
+if(isset($doc_cat) && isset($doc_name)) {
+    $result = publish($doc_name, $doc_list[$doc_cat][$doc_name][1]);
+}
+?>
+
+<div class="page color-4 ">
+    <div class="inner-page row">
+        <div class="col-md-12">
+            <h2>문서관리</h2>
+
+            <?
+            if($result > 0) {
+                    ?>
+                    <div class="alert alert-info alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong><?=$doc_name?>.html</strong> (<?=$result?> bytes) 문서가 생성되었습니다.
+                    </div>
+                    <?
+            } else if($result != -1) {
+            ?>
+                    <div class="alert alert-warning alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong><?=$doc_name?>.html</strong> (<?=$result?> bytes) 문서가 생성이 실패했습니다.
+                    </div>
+                    <?
+            }
+            ?>
+
+            <div class="alert alert-warning">
+                <p>새로운 문서추가는 doc_list.html 파일을 열어서 편집바랍니다.</p>
+                <p>Publish시 권한없음 에러발생시 docs/ 디렉토리를 chmod 777 로 변경해야함.</p>
+            </div>
+            <table class="table">
+                <tr>
+                    <th>카테고리</th>
+                    <th>제목</th>
+                    <th>파일이름</th>
+                    <th>소스위치</th>
+                    <th>기능</th>
+                </tr>
+                <?
+                foreach ($doc_list as $doc_cat => $doc_set) {
+                    $i = 0;
+                    $count = count($doc_set);
+                    foreach ($doc_set as $doc_name => $doc_info) {
+                        $doc_title = $doc_info[0];
+                        $doc_url = $doc_info[1];
+                        ?>
+                        <tr>
+                            <?
+                            if($i == 0) {
+                            ?>
+                            <td rowspan="<?=$count ?>" class="col-md-3"><b><?=$cat_list[$doc_cat][0] ?></b><br><?=$cat_list[$doc_cat][1] ?></td>
+                            <?
+                            }
+                            ?>
+                            <td class="col-md-2"><?=$doc_title?></td>
+                            <td><a href="/document.html?c=<?=$doc_cat?>&d=<?=$doc_name?>" target="_blank"><?=$doc_name?>.html</a></td>
+                            <td><a href="<?=$doc_url?>" target="_blank"><?=$doc_url?></a></td>
+                            <td>
+                                <form method="POST">
+                                    <input type="hidden" name="doc_cat" value="<?=$doc_cat?>"/>
+                                    <input type="hidden" name="doc_name" value="<?=$doc_name?>"/>
+                                    <input type="submit" value="PUBLISH" class="btn btn-default"/>
+                                </form>
+                            </td>
+                        </tr>
+                <?
+                    $i++;
+                    }
+                }
+                ?>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<?
+function publish($doc_name, $doc_url) {
+
+    $target_dir = "docs/";
+
+    if(!isset($doc_name)) {
+        return -1;
+    }
+    if(!isset($doc_url)) {
+        return -1;
+    }
+
+    $raw_doc = file_get_contents($doc_url);
+
+    $github_html = convert_markdown_to_github_html($raw_doc);
+    return file_put_contents($target_dir . $doc_name . ".html", $github_html);
+}
+
+function convert_markdown_to_github_html($data) {
+    $ch = curl_init();
+    curl_setopt_array($ch, array(
+    CURLOPT_URL=>           'https://api.github.com/markdown/raw', //Markdown/raw takes and returns plain text input and output
+    CURLOPT_FAILONERROR=>   false,
+    CURLOPT_FOLLOWLOCATION=>1,
+    CURLOPT_RETURNTRANSFER=>1, //Return result as a string
+    CURLOPT_TIMEOUT=>       300,
+    CURLOPT_POST=>          1,
+    CURLOPT_POSTFIELDS=>    $data, //Pull in the requested file
+    CURLOPT_HTTPHEADER=>    array('Content-type: text/plain'), //Github expects the given data to be plaintext
+    CURLOPT_SSL_VERIFYPEER=>0, //In case there are problems with the PHP ssl chain (often the case in Windows), ignore the error
+    CURLOPT_USERAGENT=>     'Curl/PHP' //Github now requires a useragent to process the request
+    ));
+
+    $result = curl_exec($ch);
+    curl_close($ch);
+    return $result;
+}
+function startsWith($haystack, $needle) {
+// search backwards starting from haystack length characters from the end
+return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== FALSE;
+}
+?>
+
+<div class="page color-4 ">
+    <div class="inner-page row">
+        <div class="col-md-12">
+            <h2>업데이트</h2>
+            <p>사이트를 Git에서 Pull받은후 업데이트합니다.</p>
+            <p><a href="#" class="btn btn-primary">UPDATE</a></p>
+            <div id="update_log" class="pre-scrollable" style="border:1px solid #eee">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<?
+    include 'footer.html';
+?>

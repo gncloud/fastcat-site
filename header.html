@@ -31,8 +31,6 @@ if(substr($_SERVER[HTTP_HOST],0,3) != "www") {
     <meta http-equiv=X-UA-Compatible content=IE=edge>
 </head>
 
-<!-- activate scrollspy -->
-
 <body id="top" data-target=".navbar" data-offset="50">
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="navbar-container">
@@ -46,18 +44,27 @@ if(substr($_SERVER[HTTP_HOST],0,3) != "www") {
         <div id="nav-collapse" class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="<?=($menu =='home' ? 'active' : '') ?>">
-                    <a title="홈" class=" brand-1" href="/index.html">홈</a>
+                    <a title="홈" class="brand-1" href="/index.html">홈</a>
                 </li>
                 <li class="<?=($menu =='products' ? 'active' : '') ?>">
-                    <a title="제품" class=" brand-1" href="/products.html">제품</a>
+                    <a title="제품" class="brand-1" href="/products.html">제품</a>
                 </li>
                 <li class="<?=($menu =='resources' ? 'active' : '') ?>">
-                    <a title="리소스" class=" brand-4" href="/resources.html">리소스</a>
+                    <a title="리소스" class="brand-4" href="/resources.html">리소스</a>
                 </li>
                 <li class="<?=($menu =='about' ? 'active' : '') ?>">
-                    <a title="회사" class=" fadeto brand-1" href="/about.html">회사</a>
+                    <a title="회사" class="brand-1" href="/about.html">회사</a>
                 </li>
-
+                <?
+                if($menu == 'admin') {
+                // Admin메뉴에서만 보인다.
+                ?>
+                <li class="active">
+                    <a title="관리" class="brand-4" href="/admin.html">관리</a>
+                </li>
+                <?
+                }
+                ?>
             </ul>
         </div>
     </div>

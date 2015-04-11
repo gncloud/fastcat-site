@@ -1,0 +1,10 @@
+<?php
+echo '<pre>';
+$last_line = system('cd /home/ec2-user/fastcat-site; git pull', $retval);
+echo PHP_EOL.'Return value: ' . $retval;
+
+$last_line = system('rsync -rv --delete --exclude-from=/home/ec2-user/fastcat-site/exclude-list.txt /home/ec2-user/fastcat-site/ /var/www/html/', $retval);
+echo PHP_EOL.'Return value: ' . $retval;
+
+echo '</pre>'
+?>
