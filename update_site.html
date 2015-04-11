@@ -1,17 +1,18 @@
 <?php
 echo '<pre>';
-//$cmd = 'cd /home/ec2-user/fastcat-site; git pull';
 $cmd ="cat /etc/passwd";
+$cmd = 'cd /home/ec2-user/fastcat-site; git pull';
 echo $cmd.PHP_EOL;
-system($cmd, $retval);
+$last_line = system($cmd, $retval);
 echo PHP_EOL.'>> Return value: ' . $retval . PHP_EOL;
+echo PHP_EOL.'>> Last line: ' . $last_line . PHP_EOL;
 
-echo PHP_EOL . "---------"
-
-//$cmd = 'rsync -rv --delete --exclude-from=/home/ec2-user/fastcat-site/exclude-list.txt /home/ec2-user/fastcat-site/ /var/www/html/';
+echo PHP_EOL . "---------";
+/*
+$cmd = 'rsync -rv --delete --exclude-from=/home/ec2-user/fastcat-site/exclude-list.txt /home/ec2-user/fastcat-site/ /var/www/html/';
 echo $cmd.PHP_EOL;
 system($cmd, $retval);
 echo PHP_EOL.'>>Return value: ' . $retval . PHP_EOL;
-
+*/
 echo '</pre>'
 ?>
