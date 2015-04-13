@@ -319,6 +319,7 @@ include 'header.html';
                 <textarea name="contents" rows="6" class="form-control required" placeholder="내용"></textarea>
                 <input name="mail_from" type="text" class="form-control email required" placeholder="your@e-mail.com">
                 <input name="mail_from_name" type="text" class="form-control required" placeholder="이름 직함">
+                <input name="mail_from_phone" type="text" class="form-control required" placeholder="통화가능한 전화번호">
                 <input type="submit" class="btn btn-primary btn-centered" value="연락바랍니다" />
             </form>
         </div>
@@ -350,13 +351,15 @@ include 'header.html';
                     data: {
                         "contents" : form.find("textarea[name=contents]").val(),
                         "mail_from" : form.find("input[name=mail_from]").val(),
-                        "mail_from_name" : form.find("input[name=mail_from_name]").val()
+                        "mail_from_name" : form.find("input[name=mail_from_name]").val(),
+                        "mail_from_phone" : form.find("input[name=mail_from_phone]").val()
                     },
                     success: function(data) {
                         console.log("data : " , data);
                         console.log(data.indexOf("FAIL"));
                         if(data.indexOf("OK") != -1) {
                             alert("감사합니다. 빠른시일내에 답변드리겠습니다.")
+                            $("#contact-form").reset();
                         } else {
                             alert(errMessage);
                         }

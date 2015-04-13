@@ -8,10 +8,12 @@ if(!eregi(getenv("HTTP_HOST"),getenv("HTTP_REFERER")))
 }
 
 $mail_from_name = trim($_POST['mail_from_name']);
+$mail_from_phone = trim($_POST['mail_from_phone']);
 $mail_from = trim($_POST['mail_from']);
-//$mail_to = "swsong@fastcat.co";
-$mail_to = "contact@fastcat.co";
+$mail_to = "swsong@fastcat.co";
+//$mail_to = "contact@fastcat.co";
 $subject = "[". $mail_from_name. "]님 으로부터 FASTCAT문의가 전달되었습니다.";
+$contents = $contents . "\n\n--\n회신연락처 : " . $mail_from_phone;
 $contents = nl2br(trim($_POST['contents']));
 
 $ret = sendmail($mail_from_name, $mail_from, $mail_to, $subject, $contents, "");
