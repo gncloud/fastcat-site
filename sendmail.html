@@ -10,17 +10,20 @@ if(!eregi(getenv("HTTP_HOST"),getenv("HTTP_REFERER")))
 $mail_from_name = trim($_POST['mail_from_name']);
 $mail_from_phone = trim($_POST['mail_from_phone']);
 $mail_from = trim($_POST['mail_from']);
-$mail_to = "swsong@fastcat.co";
-//$mail_to = "contact@fastcat.co";
-$subject = "[". $mail_from_name. "]님 으로부터 FASTCAT문의가 전달되었습니다.";
-$contents = $contents . "\n\n--\n회신연락처 : " . $mail_from_phone;
+//$mail_to = "swsong@fastcat.co";
+$mail_to = "contact@fastcat.co";
+$subject = "[$mail_from_name]님 으로부터 FASTCAT문의가 전달되었습니다.";
+$addinfo = "회신연락처 : $mail_from_phone <br>";
 $contents = nl2br(trim($_POST['contents']));
 
-$ret = sendmail($mail_from_name, $mail_from, $mail_to, $subject, $contents, "");
+$ret = sendmail($mail_from_name, $mail_from, $mail_to, $subject, $contents, $addinfo);
 if($ret == 0){
     echo "OK";
     //잘 접수되었으며 답변을 기다려달라고 메일을 보낸다.
-    $ret2 = sendmail("FASTCAT", "no-reply@fastcat.co", $mail_from, "FASTCAT 문의요청이 접수되었습니다.", $mail_from_name."님이 요청하신 문의가 접수되었습니다.<p>담당자가 연락을 드리겠습니다.<p>감사합니다.<p>--<br>FASTCAT<br>http://fastcat.co<br>", "");
+    $confirm_title = "FASTCAT 문의요청이 접수되었습니다.";
+    $confirm_body = $mail_from_name."님이 요청하신 문의가 접수되었습니다.<p>담당자가 연락을 드리겠습니다.<p>감사합니다.";
+    $confirm_addinfo = "FASTCAT<br>http://www.fastcat.co<br>";
+    $ret2 = sendmail("FASTCAT", "no-reply@fastcat.co", $mail_from, $confirm_title, $confirm_body, $confirm_addinfo);
     if($ret2 == 0) {
         echo "\nOK2";
     } else if($ret2 == 1) {
@@ -30,18 +33,23 @@ if($ret == 0){
     }
 }else if ($ret == 1){
     echo "FAIL";
-    //실패했으며, contact@fastcat.co로 보내달라고 한다.
+    //실패했으며, contact메일로 보내달라고 한다.
 }else if ($ret == 2){
+    //정보부족으로 보내지 못함.
     echo "FAILINFO";
 }
 
-function sendmail($name, $from, $to, $subj, $cont, $pref) {
+function sendmail($name, $from, $to, $subj, $cont, $addinfo) {
     if($name && $from && $to && $subj && $cont){
         $Headers = "";
         $Headers .= "from: ".$name." <".$from."> \r\n";
         $Headers .= "Content-Type: text/html; charset=UTF-8 \r\n";
         $subj =  $pref.$subj;
-/*
+        if(!empty($addinfo)){
+            $cont = $cont."<p/>--<br>" . $addinfo;
+        }
+
+    /*
 echo $to;
 echo "\n";
 echo $subj;
@@ -51,6 +59,7 @@ echo "\n";
 echo $Headers;
 echo "\n";
 */
+
 
         $result = mail($to, $subj, $cont, $Headers);
         if($result){
