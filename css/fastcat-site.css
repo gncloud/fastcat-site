@@ -146,3 +146,10 @@ ul.side-info li {color: #3083a7}
     word-wrap: break-word;
 }
 .document-side-box {padding: 10px 10px 20px 0px;}
+
+.markdown-body code {
+    white-space: pre-wrap; /* CSS3*/
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
