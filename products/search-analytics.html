@@ -1,6 +1,8 @@
 <?
 $menu = "products";
 include '../header.html';
+
+$line = 0
 ?>
 
 <div id="product" class="page color-1">
@@ -9,29 +11,7 @@ include '../header.html';
     </div>
 </div>
 
-<div class="page color-3">
-    <div class="row inner-page">
-        <div class="col-md-6">
-            <div class="product-feature-icons">
-                <i class="fa fa-sitemap icon-size-48"></i>
-            </div>
-            <div class="product-feature">
-                <h3>사이트 무제한 추가</h3>
-                <p class="lead">검색어 통계를 분석할 사이트를 제한없이 원하는 갯수만큼 추가할수 있습니다. </p>
-                <ul class="list-wide">
-                    <li><i class="fa fa-check"></i> 사이트별 독립 데이터 보존</li>
-                    <li><i class="fa fa-check"></i> 사이트별 독립 API제공</li>
-                    <li><i class="fa fa-check"></i> 사이트별 독립 설정</li>
-                    <li><i class="fa fa-check"></i> 데스크톱, 모바일별 통계분리 활용</li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-6 lazy-container">
-            <img class="figurette lazy" src="/img/pixel.png" data-original="/img/products/analytics/site-list.jpg" alt="사이트리스트" />
-        </div>
-    </div>
-</div>
-<div class="page color-4">
+<div class="page color-<?=$line++ %2 + 3?>">
     <div class="row inner-page">
         <div class="col-md-6">
             <div class="product-feature-icons ">
@@ -50,11 +30,11 @@ include '../header.html';
             </div>
         </div>
         <div class="col-md-6 lazy-container">
-            <img class="figurette lazy" src="/img/pixel.png" data-original="/img/products/analytics/analytics-dashboard.jpg" alt="대시보드" />
+            <img class="figurette lazy" src="/img/pixel.png" data-original="/img/products/analytics/dashboard.jpg" alt="대시보드" />
         </div>
     </div>
 </div>
-<div class="page color-3">
+<div class="page color-<?=$line++ %2 + 3?>">
     <div class="row inner-page">
         <div class="col-md-6">
             <div class="product-feature-icons">
@@ -80,7 +60,7 @@ include '../header.html';
         </div>
     </div>
 </div>
-<div class="page color-4">
+<div class="page color-<?=$line++ %2 + 3?>">
     <div class="row inner-page">
         <div class="col-md-6">
             <div class="product-feature-icons">
@@ -107,7 +87,7 @@ include '../header.html';
         </div>
     </div>
 </div>
-<div class="page color-3">
+<div class="page color-<?=$line++ %2 + 3?>">
     <div class="row inner-page">
         <div class="col-md-6">
             <div class="product-feature-icons">
@@ -130,7 +110,7 @@ include '../header.html';
         </div>
     </div>
 </div>
-<div class="page color-4">
+<div class="page color-<?=$line++ %2 + 3?>">
     <div class="row inner-page">
         <div class="col-md-6">
             <div class="product-feature-icons">
@@ -153,7 +133,7 @@ include '../header.html';
         </div>
     </div>
 </div>
-<div class="page color-3">
+<div class="page color-<?=$line++ %2 + 3?>">
     <div class="row inner-page">
         <div class="col-md-6">
             <div class="product-feature-icons">
@@ -178,7 +158,7 @@ include '../header.html';
         </div>
     </div>
 </div>
-<div class="page color-4">
+<div class="page color-<?=$line++ %2 + 3?>">
     <div class="row inner-page">
         <div class="col-md-6">
             <div class="product-feature-icons">
@@ -200,7 +180,7 @@ include '../header.html';
         </div>
     </div>
 </div>
-<div class="page color-3">
+<div class="page color-<?=$line++ %2 + 3?>">
     <div class="row inner-page">
         <div class="col-md-6">
             <div class="product-feature-icons">
@@ -222,7 +202,7 @@ include '../header.html';
         <!--</div>-->
     </div>
 </div>
-<div class="page color-4">
+<div class="page color-<?=$line++ %2 + 3?>">
     <div class="row inner-page">
         <div class="col-md-6">
             <div class="product-feature-icons">
@@ -261,7 +241,7 @@ include '../header.html';
         </div>
     </div>
 </div>
-<div class="page color-3">
+<div class="page color-<?=$line++ %2 + 3?>">
     <div class="row inner-page">
         <div class="col-md-6">
             <div class="product-feature-icons">
@@ -287,7 +267,7 @@ include '../header.html';
         </div>
     </div>
 </div>
-<div class="page color-4">
+<div class="page color-<?=$line++ %2 + 3?>">
     <div class="row inner-page">
         <div class="col-md-6">
             <div class="product-feature-icons">
@@ -311,7 +291,29 @@ include '../header.html';
         </div>
     </div>
 </div>
-<div class="page color-3">
+<div class="page color-<?=$line++ %2 + 3?>">
+    <div class="row inner-page">
+        <div class="col-md-6">
+            <div class="product-feature-icons">
+                <i class="fa fa-sitemap icon-size-48"></i>
+            </div>
+            <div class="product-feature">
+                <h3>사이트 무제한 추가</h3>
+                <p class="lead">검색어 통계를 분석할 사이트를 제한없이 원하는 갯수만큼 추가할수 있습니다. </p>
+                <ul class="list-wide">
+                    <li><i class="fa fa-check"></i> 사이트별 독립 데이터 보존</li>
+                    <li><i class="fa fa-check"></i> 사이트별 독립 API제공</li>
+                    <li><i class="fa fa-check"></i> 사이트별 독립 설정</li>
+                    <li><i class="fa fa-check"></i> 데스크톱, 모바일별 통계분리 활용</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6 lazy-container">
+            <img class="figurette lazy" src="/img/pixel.png" data-original="/img/products/analytics/websites-550x275.gif" alt="사이트무제한" />
+        </div>
+    </div>
+</div>
+<div class="page color-<?=$line++ %2 + 3?>">
     <div class="row inner-page">
         <div class="col-md-6">
             <div class="product-feature-icons">
