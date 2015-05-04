@@ -37,6 +37,9 @@
                 <li><a href="https://www.facebook.com/groups/fastcatsearch/" target="_blank"><i
                         class="fa fa-facebook-square"></i> 페이스북 커뮤니티</a></li>
                 <li><a href="https://github.com/fastcat-co" target="_blank"><i class="fa fa-github-square"></i> Github</a></li>
+                <li>
+                    <div class="fb-like" data-href="https://www.facebook.com/fastcat.co" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+                </li>
             </ul>
 
         </div>
@@ -70,6 +73,16 @@
 
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 
+</body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&appId=106985566027842&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <?
 if($menu != "admin") {
 ?>
@@ -84,5 +97,5 @@ if($menu != "admin") {
 
 </script>
 <?}?>
-</body>
+
 </html>
