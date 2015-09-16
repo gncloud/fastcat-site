@@ -1,0 +1,42 @@
+<script>
+    function view_notice(id) {
+        var doc = $("#notice_doc_"+id);
+        var title = doc.find(".notice_title").text();
+        var content = doc.find(".notice_content").html();
+        $('#notice-view-modal').find('.modal-title').text(title)
+        $('#notice-view-modal').find('.modal-body').html(content)
+        $('#notice-view-modal').modal({show: true, backdrop: 'static'});
+    }
+</script>
+<div id="notice_doc_1" class="notice_doc">
+    <div class="notice_title">
+        자본감소 및 주권제출공고
+    </div>
+    <div class="notice_content">
+        <pre>1. 당 회사는 2015년 9월 12일 임시주주총회에서 자본의 총액 금110,000,000원을 금50,000,000원으로 감소하고 그 방법으로 1주의 금액 금1,000원의 주식 60,000주를 유상소각하여 발행주식총수 110,000주를 50,000주로 감소할 것을 결의하였습니다.
+
+2. 따라서 이 공고 게재 익일부터 1개월 이내에 이 자본감소에 이의 있는 채권자는 이의를 제출하고, 구주권을 가진 사람은 구주권을 당 회사에 제출하시기 바랍니다.
+
+
+                    2015년  9월  12일
+
+                    주식회사 패스트캣
+                    사내이사 송 상 욱</pre>
+    </div>
+</div>
+
+
+<div id="notice-view-modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
