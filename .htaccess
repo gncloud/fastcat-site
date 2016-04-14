@@ -1,13 +1,9 @@
-# mod_rewrite
-<IfModule mod_rewrite.c>
-  # Enable mod_rewrite engine
-  RewriteEngine on
-
-  # WITH 'www.'
-  RewriteCond %{HTTP_HOST} ^$uri\.$tld$ [NC]
-  RewriteRule ^(.*)$ https://www.$domain$1 [L,R=301]
-
-  # WITOUT 'www.'
-  RewriteCond %{HTTP_HOST} ^www\.$uri\.$tld$ [NC]
-  RewriteRule ^(.*)$ https://$domain/$1 [L,R=301]
-</IfModule>
+RewriteEngine On
+RewriteCond %{HTTPS} off
+# First rewrite to HTTPS:
+# Don't put www. here. If it is already there it will be included, if not
+# the subsequent rule will catch it.
+RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# Now, rewrite any request to the wrong domain to use www.
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule .* https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
