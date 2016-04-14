@@ -1,0 +1,13 @@
+# mod_rewrite
+<IfModule mod_rewrite.c>
+  # Enable mod_rewrite engine
+  RewriteEngine on
+
+  # WITH 'www.'
+  RewriteCond %{HTTP_HOST} ^$uri\.$tld$ [NC]
+  RewriteRule ^(.*)$ https://www.$domain$1 [L,R=301]
+
+  # WITOUT 'www.'
+  RewriteCond %{HTTP_HOST} ^www\.$uri\.$tld$ [NC]
+  RewriteRule ^(.*)$ https://$domain/$1 [L,R=301]
+</IfModule>
