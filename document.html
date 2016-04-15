@@ -1,25 +1,23 @@
 <?
-$title_str = "";
-$desc_str = "";
-$keywords_str = "";
-$menu = "resources";
-include 'header.html';
 include "doc_list.html";
-?>
 
-<?
 $doc_cat = trim($_GET['c']);
 $doc_name = trim($_GET['d']);
+
+$doc_title = $doc_list[$doc_cat][$doc_name][0];
+$cat_title = $cat_list[$doc_cat][0];
 ?>
 
 <?
-$doc_title = $doc_list[$doc_cat][$doc_name][0];
-$cat_title = $cat_list[$doc_cat][0];
+$title_str = $doc_title . " :: " . $cat_title;
+$desc_str = $title_str;
+$keywords_str = $title_str;
+$menu = "resources";
+include 'header.html';
 ?>
 <!-- About page -->
 <div id="documentation" class="page color-4">
     <div class="row inner-page">
-
 
         <div class="col-md-9">
             <div class="breadcrumb"><a href="/resources.html"><i class="fa fa-home"></i> 리소스</a> <i class="fa fa-angle-right"></i> <?=$cat_title ?> <i class="fa fa-angle-right"></i> <?=$doc_title ?></div>
@@ -40,7 +38,7 @@ $cat_title = $cat_list[$doc_cat][0];
                     <?
                     foreach($doc_list[$doc_cat] as $doc_name => $doc_info) {
                     ?>
-                    <li><a href="/document.html?c=<?=$doc_cat?>&d=<?=$doc_name ?>"><?=$doc_info[0] ?></a></li>
+                    <li><a href="/document/<?=$doc_cat?>/<?=$doc_name ?>"><?=$doc_info[0] ?></a></li>
                     <?
                     }
                     ?>
