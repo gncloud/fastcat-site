@@ -12,4 +12,5 @@ RewriteRule ^$ /index.html [L]
 # Clean URL
 RewriteRule ^([^/.]*)$ /$1.html [L]
 RewriteRule ^document/([^/]*)/([^/]*)$ /document.html?c=$1&d=$2 [L]
-RewriteRule ^products/([^/.]*)$ /products/$1.html [L]
+RewriteRule ^products/$ /products.html [L]
+RewriteRule ^products/([^/.]+)$ /products/$1.html [L]
