@@ -26,12 +26,46 @@ include 'header.html';
                 <li><i class="fa fa-check"></i> 완벽한 한글지원</li>
             </ul>
             <br/>
-            <a href="/product/search" title="Check out more freatures!" class="scroll btn btn-primary btn-centered"><i
-                    class="fa fa-caret-down"></i> 더 보기</a>
+            <a href="#trialModal" title="Check out more freatures!" class="btn btn-primary btn-centered" data-toggle="modal">
+                <i class="fa"></i>Free Trial</a>
         </div>
     </div>
 </div>
 <!-- /#home -->
+
+<!-- Free Trial Modal -->
+<div class="modal " id="trialModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Free Trial</h4>
+            </div>
+            <div class="modal-body">
+                <b>http://console.fastcat.co/console</b>
+                <a href="http://console.fastcat.co/console" target="_blank">[link1]</a>
+                <a href="http://13.228.58.52/console" target="_blank">[link2]</a>
+
+                <p>Use can access free trial console with below information. This is for demo purpose and your data can be deleted
+                    anytime during trial service.
+                </p>
+                <ul>
+                    <li>AddressPort : localhost:8090</li>
+                    <li>ID : admin</li>
+                    <li>Password : 1111</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /#Free Trial Modal -->
+
+
 
 <div class="page no-padding-top color-4">
     <div class="inner-page row">
